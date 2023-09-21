@@ -84,7 +84,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="20dp"
-                android:text="Launch Gallery"
+                android:text="@string/launch_gallery"
                 android:textAllCaps="false"
                 android:textSize="21sp"
                 android:textStyle="bold"

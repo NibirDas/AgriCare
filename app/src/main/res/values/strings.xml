@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AgriCare</string>
     <string name="want_a_expert_s_advice">Want a expert\'s advice ?</string>
+    <string name="launch_gallery">Launch Gallery</string>
 </resources>
