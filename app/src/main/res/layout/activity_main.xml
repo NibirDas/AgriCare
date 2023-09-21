@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="20dp"
-                android:text="Take Picture"
+                android:text="@string/take_picture"
                 android:textAllCaps="false"
                 android:textSize="21sp"
                 android:textStyle="bold"
