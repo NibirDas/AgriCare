@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Want a expert's advice ?"
+                android:text="@string/want_a_expert_s_advice"
                 android:fontFamily="serif-monospace"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
