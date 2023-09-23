@@ -13,6 +13,27 @@
         android:theme="@style/Theme.AgriCare"
         tools:targetApi="31">
         <activity
+            android:name=".Reward"
+            android:exported="false" />
+        <activity
+            android:name=".News"
+            android:exported="false" />
+        <activity
+            android:name=".Crop"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".tip_3"
+            android:exported="false" />
+        <activity
+            android:name=".tip_2"
+            android:exported="false" />
+        <activity
+            android:name=".tip_1"
+            android:exported="false" />
+        <activity
             android:name=".Welcome"
             android:exported="false" />
         <activity
@@ -29,7 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

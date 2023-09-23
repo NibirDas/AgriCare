@@ -20,7 +20,7 @@ public class SpWithAnimationActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Create and start your intent here
-                Intent intent = new Intent(SpWithAnimationActivity.this, MainActivity.class);
+                Intent intent = new Intent(SpWithAnimationActivity.this, tip_3.class);
                 startActivity(intent);
             }
         };

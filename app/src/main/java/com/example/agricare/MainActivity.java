@@ -1,7 +1,10 @@
 package com.example.agricare;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.tensorflow.lite.DataType;
@@ -30,12 +34,15 @@ import com.example.agricare.ml.Model;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button camera, gallery;
+    private static final int CAMERA_PERMISSION_REQUEST = 100;
+    private static final int CAMERA_REQUEST = 3;
     ImageView imageView;
     TextView result;
     int imageSize = 128;
+    Button camera, gallery;
+    TextView move;
 
-    private TextView move;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         move = findViewById(R.id.Move);
 
 
-        camera = findViewById(R.id.button);
+        //camera = findViewById(R.id.button);
         gallery = findViewById(R.id.button2);
 
         result = findViewById(R.id.result);
@@ -65,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent, 3);
-                } else {
+                }
+                else {
                     requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
                 }
             }
@@ -78,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    // -------------------------------------------------------------------------------------------
 
     public void classifyImage(Bitmap image){
         try {
@@ -95,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
             for(int i = 0; i < imageSize; i ++){
                 for(int j = 0; j < imageSize; j++){
                     int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
+                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f));
+                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f));
+                    byteBuffer.putFloat((val & 0xFF) * (1.f));
                 }
             }
 
@@ -127,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // -------------------------------------------------------------------------------------------
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(resultCode == RESULT_OK){
